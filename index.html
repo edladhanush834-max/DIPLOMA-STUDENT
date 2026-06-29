@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diplomate - Ultimate Student Companion</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="logo-container">
+        <div class="logo-icon">D</div>
+        <div class="logo-text">Diplomate</div>
+      </div>
+      
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a class="nav-link active" data-target="view-dashboard">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+            </svg>
+            Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-target="view-prep">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+            </svg>
+            Prep Hub
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-target="view-voice">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
+            </svg>
+            Voice Assistant
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-target="view-money">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5h16.5M3.75 4.5a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 003.75 19.5h16.5a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0020.25 4.5M3.75 4.5V15M20.25 4.5V15m-16.5 0h16.5" />
+            </svg>
+            Money Manager
+          </a>
+        </li>
+      </ul>
+      
+      <div class="sidebar-footer">
+        <div class="voice-status-panel">
+          <div class="status-indicator" id="sidebar-voice-indicator"></div>
+          <div class="status-text" id="sidebar-voice-text">Voice System Idle</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- 1. DASHBOARD VIEW -->
+      <section id="view-dashboard" class="page-view active">
+        <div class="page-header">
+          <div class="header-title">
+            <h1 id="welcome-message">Hello Student!</h1>
+            <p>Welcome to your academic companion hub.</p>
+          </div>
+          <div class="branch-pill" id="dashboard-branch-pill">Computer Science</div>
+        </div>
+
+        <div class="metrics-grid">
+          <div class="metric-card glass-panel">
+            <div class="metric-header">
+              <span>Active Branch</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+            </div>
+            <div class="metric-value" id="dash-active-branch">-</div>
+            <div class="metric-desc">Switch branch in preferences</div>
+          </div>
+          <div class="metric-card glass-panel cyan">
+            <div class="metric-header">
+              <span>Budget Balance</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"/><line x1="12" y1="10" x2="12" y2="10"/></svg>
+            </div>
+            <div class="metric-value" id="dash-balance">₹0</div>
+            <div class="metric-desc">Available allowance</div>
+          </div>
+          <div class="metric-card glass-panel green" id="dash-speech-status-card">
+            <div class="metric-header">
+              <span>Voice Helper</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+            </div>
+            <div class="metric-value" id="dash-voice-text">Ready</div>
+            <div class="metric-desc">Say "Help" in voice panel</div>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          <!-- Branch Configuration Panel -->
+          <div class="glass-panel" style="padding: 1.75rem;">
+            <h2 style="font-size: 1.3rem; margin-bottom: 1.25rem; font-weight: 700;">Student Settings</h2>
+            
+            <div class="form-group">
+              <label for="branch-selector">Your Engineering Branch</label>
+              <select id="branch-selector">
+                <option value="cs">Computer Science & Engineering</option>
+                <option value="ee">Electrical & Electronics Engineering</option>
+                <option value="me">Mechanical Engineering</option>
+                <option value="ce">Civil Engineering</option>
+              </select>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+              <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 1.25rem;">
+                Select your stream to automatically tailor the **Prep Hub** with branch-specific core subjects, summarized study guides, and vital exam questions.
+              </p>
+              <button class="btn btn-primary" id="save-branch-btn">Configure Hub</button>
+            </div>
+          </div>
+
+          <!-- Shortcuts & Navigation Portal -->
+          <div class="glass-panel" style="padding: 1.75rem;">
+            <h2 style="font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 700;">Quick Portals</h2>
+            <p style="color: var(--text-muted); font-size: 0.85rem;">Access features instantly with a click.</p>
+            
+            <div class="quick-links">
+              <div class="quick-link-card glass-panel" data-go="view-prep">
+                <div class="qlink-icon">📚</div>
+                <div class="qlink-title">Syllabus Prep</div>
+                <div class="qlink-desc">Study notes & answers</div>
+              </div>
+              <div class="quick-link-card glass-panel" data-go="view-voice">
+                <div class="qlink-icon">🎙️</div>
+                <div class="qlink-title">AI Voice</div>
+                <div class="qlink-desc">Hands-free prep assistant</div>
+              </div>
+              <div class="quick-link-card glass-panel" data-go="view-money">
+                <div class="qlink-icon">💰</div>
+                <div class="qlink-title">Money Ledger</div>
+                <div class="qlink-desc">Manage student allowance</div>
+              </div>
+              <div class="quick-link-card glass-panel" data-go="view-dashboard">
+                <div class="qlink-icon">⚙️</div>
+                <div class="qlink-title">Preferences</div>
+                <div class="qlink-desc">Configure dashboard settings</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. PREP HUB VIEW -->
+      <section id="view-prep" class="page-view">
+        <div class="page-header">
+          <div class="header-title">
+            <h1 id="prep-branch-name">Prep Hub</h1>
+            <p>Exam preparation resources, dynamic notes, and vital sample questions.</p>
+          </div>
+          <div class="branch-pill" id="prep-branch-pill">-</div>
+        </div>
+
+        <div class="glass-panel" style="padding: 1.5rem;">
+          <div class="branch-select-row">
+            <div class="form-group">
+              <label for="prep-subject-selector">Active Subject</label>
+              <select id="prep-subject-selector">
+                <!-- Populated dynamically -->
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="tabs-container">
+          <button class="tab-btn active" id="tab-notes">Study Notes</button>
+          <button class="tab-btn" id="tab-questions">Important Questions</button>
+        </div>
+
+        <!-- Notes Panel content -->
+        <div id="notes-view" class="notes-container">
+          <!-- Dynamically populated note cards -->
+        </div>
+
+        <!-- Questions Panel content -->
+        <div id="questions-view" class="questions-container" style="display: none;">
+          <!-- Dynamically populated accordion questions -->
+        </div>
+      </section>
+
+      <!-- 3. VOICE ASSISTANT VIEW -->
+      <section id="view-voice" class="page-view">
+        <div class="page-header">
+          <div class="header-title">
+            <h1>Voice Assistant</h1>
+            <p>Voice-control your study flow, search notes, or log expenses hands-free.</p>
+          </div>
+        </div>
+
+        <div class="content-grid">
+          <!-- Voice Interface Panel -->
+          <div class="glass-panel voice-hero">
+            <div class="voice-mic-container" id="mic-container">
+              <div class="mic-pulse-ring"></div>
+              <div class="mic-pulse-ring-2"></div>
+              <button class="mic-btn" id="voice-activation-btn" title="Toggle Assistant Listening">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/>
+                </svg>
+              </button>
+            </div>
+            
+            <div>
+              <div class="voice-status-text" id="voice-main-status">Click to Activate Assistant</div>
+              <div class="voice-hint" id="voice-command-preview">Tip: Tap microphone to talk, say "Help" for possibilities</div>
+            </div>
+
+            <div class="voice-transcripts glass-panel" style="width: 100%; text-align: left;" id="voice-messages-log">
+              <div class="transcript-message assistant">
+                <span class="message-sender">System</span>
+                <span class="message-text">Hello, I am your study voice assistant. Speak a command or say "Help" to begin.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Helper Command Panel -->
+          <div class="glass-panel voice-commands-card">
+            <h3>Voice Commands Cheat Sheet</h3>
+            <div class="command-list">
+              <div class="command-item">
+                <span class="command-syntax">"go to dashboard"</span>
+                <span class="command-desc">Switches to your student dashboard view.</span>
+              </div>
+              <div class="command-item">
+                <span class="command-syntax">"go to prep" / "go to syllabus"</span>
+                <span class="command-desc">Switches view to the Active Branch study resources.</span>
+              </div>
+              <div class="command-item">
+                <span class="command-syntax">"go to money" / "go to budget"</span>
+                <span class="command-desc">Switches view to the expense ledger.</span>
+              </div>
+              <div class="command-item">
+                <span class="command-syntax">"read notes"</span>
+                <span class="command-desc">Reads aloud all study notes for the active subject.</span>
+              </div>
+              <div class="command-item">
+                <span class="command-syntax">"add expense [amount] for [description]"</span>
+                <span class="command-desc">Logs spending. Example: "Add expense 150 for book purchase".</span>
+              </div>
+              <div class="command-item">
+                <span class="command-syntax">"reset budget"</span>
+                <span class="command-desc">Resets the monthly allowance and expense ledger.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. MONEY MANAGER VIEW -->
+      <section id="view-money" class="page-view">
+        <div class="page-header">
+          <div class="header-title">
+            <h1>Money Manager</h1>
+            <p>Track your student budget, log micro-expenses, and maintain healthy saving habits.</p>
+          </div>
+        </div>
+
+        <div class="content-grid">
+          <!-- Budget Controls and Analytics -->
+          <div class="glass-panel" style="padding: 1.75rem; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <h2 style="font-size: 1.3rem; margin-bottom: 1.25rem; font-weight: 700;">Set Monthly Budget</h2>
+              <div class="form-group" style="flex-direction: row; align-items: center; gap: 1rem;">
+                <input type="number" id="budget-input" placeholder="Enter Monthly Budget" value="5000" style="flex-grow: 1;">
+                <button class="btn btn-primary" id="save-budget-btn">Update Budget</button>
+              </div>
+
+              <!-- Budget Metrics -->
+              <div style="margin-top: 2rem;">
+                <div style="display: flex; justify-content: space-between; font-weight: 500; font-size: 1rem; color: var(--text-secondary);">
+                  <span>Monthly Allowance:</span>
+                  <span id="tracker-total-budget" style="color: #fff; font-weight: 700;">₹5,000</span>
+                </div>
+                
+                <div class="budget-visual">
+                  <div class="budget-bar-bg">
+                    <div class="budget-bar-fill" id="budget-fill-bar"></div>
+                  </div>
+                  <span class="budget-percent" id="budget-remaining-percent">100% Left</span>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; margin-top: 1rem; font-size: 0.95rem;">
+                  <span style="color: var(--text-muted)">Total Spent:</span>
+                  <span id="tracker-total-spent" style="color: var(--accent-red); font-weight: 700;">₹0</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-top: 0.5rem; font-size: 0.95rem;">
+                  <span style="color: var(--text-muted)">Remaining Cash:</span>
+                  <span id="tracker-remaining-budget" style="color: var(--accent-green); font-weight: 700;">₹5,000</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Add Expense Form -->
+            <div style="border-top: 1px solid var(--glass-border); padding-top: 1.75rem; margin-top: 2rem;">
+              <h3 style="font-size: 1.15rem; margin-bottom: 1.25rem; font-weight: 600;">Log Expense</h3>
+              
+              <div class="form-group">
+                <label for="expense-title">Expense Item/Description</label>
+                <input type="text" id="expense-title" placeholder="e.g. Lunch at canteen, Lab manual">
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 1rem;">
+                <div class="form-group">
+                  <label for="expense-amount">Amount (₹)</label>
+                  <input type="number" id="expense-amount" placeholder="Amount">
+                </div>
+                <div class="form-group">
+                  <label for="expense-category">Category</label>
+                  <select id="expense-category">
+                    <option value="food">Food & Beverage</option>
+                    <option value="books">Books & Stationery</option>
+                    <option value="transit">Transit & Bus pass</option>
+                    <option value="entertainment">Social & Entertainment</option>
+                    <option value="others">Other / Misc</option>
+                  </select>
+                </div>
+              </div>
+
+              <button class="btn btn-cyan" id="add-expense-btn" style="width: 100%; margin-top: 0.5rem;">Add Transaction</button>
+            </div>
+          </div>
+
+          <!-- Expense Ledger Ledger -->
+          <div class="glass-panel expense-list-panel">
+            <h3>Recent Transactions</h3>
+            <ul class="expenses-container" id="expenses-ledger">
+              <!-- Dynamically populated expense list items -->
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="mockData.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
